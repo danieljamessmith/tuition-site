@@ -1,0 +1,117 @@
+@config "../../../tailwind.config.js";
+@import 'tailwindcss';
+
+@layer utilities {
+  .bg-page {
+    background-color: var(--aw-color-bg-page);
+  }
+  .bg-light {
+    background-color: var(--aw-color-bg-page);
+  }
+  .text-page {
+    color: var(--aw-color-text-page);
+  }
+  .text-muted {
+    color: var(--aw-color-text-muted);
+  }
+
+  /* Visual depth backgrounds */
+  .bg-hero-pattern {
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(20, 184, 166, 0.06) 0%, transparent 50%),
+      linear-gradient(to bottom, #ffffff, #f8faf9);
+  }
+
+  .bg-section-gradient {
+    background: linear-gradient(to bottom, rgba(236, 253, 245, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  .bg-section-gradient-reverse {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(236, 253, 245, 0.4) 100%);
+  }
+
+  .bg-card-gradient {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(236, 253, 245, 0.3) 100%);
+  }
+
+  /* Gradient text utility */
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, rgb(16, 185, 129) 0%, rgb(20, 184, 166) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full border-gray-300 border bg-transparent font-medium text-center text-base leading-snug py-3.5 px-6 md:px-8 cursor-pointer;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-[1.02] hover:shadow-md;
+    @apply focus:ring-emerald-500 focus:ring-offset-2 focus:ring-2 focus:outline-none;
+    @apply text-gray-700 hover:bg-gray-50 hover:border-gray-400;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full border-gray-300 border bg-transparent font-medium text-center text-base leading-snug py-3.5 px-6 md:px-8 cursor-pointer;
+    @apply transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-md;
+    @apply focus:ring-emerald-500 focus:ring-offset-2 focus:ring-2 focus:outline-none;
+    @apply hover:bg-gray-50 hover:border-gray-400 font-semibold border-transparent;
+    @apply bg-gradient-to-r from-emerald-500 to-teal-500 text-white;
+    @apply hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/25;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border-gray-300 border bg-transparent font-medium text-center text-base leading-snug py-3.5 px-6 md:px-8 cursor-pointer;
+    @apply transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-md;
+    @apply focus:ring-emerald-500 focus:ring-offset-2 focus:ring-2 focus:outline-none;
+    @apply border-emerald-500/30 text-emerald-700 bg-emerald-50/50;
+    @apply hover:bg-emerald-100 hover:border-emerald-500/50 hover:text-emerald-800;
+  }
+
+  .btn-tertiary {
+    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-medium text-center text-base leading-snug py-3.5 px-6 md:px-8 cursor-pointer;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:ring-emerald-500 focus:ring-offset-2 focus:ring-2 focus:outline-none;
+    @apply border-none shadow-none text-muted hover:text-gray-900 hover:bg-transparent hover:scale-100;
+  }
+}
+
+#header.expanded nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 0 5px;
+}
+
+.dropdown:focus .dropdown-menu,
+.dropdown:focus-within .dropdown-menu,
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+[astro-icon].icon-light > * {
+  stroke-width: 1.2;
+}
+
+[astro-icon].icon-bold > * {
+  stroke-width: 2.4;
+}
+
+[data-aw-toggle-menu] path {
+  @apply transition;
+}
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+}
+
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+.dd *:first-child {
+  margin-top: 0;
+}
